@@ -3,10 +3,18 @@ import ReactDOM from "react-dom";
 import "./styles/tailwind.css";
 import App from "./App";
 import * as serviceWorker from "./serviceWorker";
+import ApolloClient from "apollo-boost";
+import { ApolloProvider } from "@apollo/react-hooks";
 
+//add the uri here
+const client = new ApolloClient({
+  uri: "",
+});
 ReactDOM.render(
   <React.StrictMode>
-    <App />
+    <ApolloProvider client={client}>
+      <App />
+    </ApolloProvider>
   </React.StrictMode>,
   document.getElementById("root")
 );
